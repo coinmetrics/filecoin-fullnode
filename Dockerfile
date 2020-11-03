@@ -55,4 +55,7 @@ RUN set -ex; \
 
 COPY --from=builder /home/builder/lotus/lotus /usr/bin/
 
+RUN useradd -m -u 1000 -s /bin/bash runner
+USER runner
+
 ENTRYPOINT ["lotus"]

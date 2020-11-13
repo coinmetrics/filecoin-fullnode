@@ -11,6 +11,7 @@ RUN set -ex; \
     curl \
     git \
     jq \
+    libhwloc-dev \
     mesa-opencl-icd \
     ocl-icd-opencl-dev \
     pkg-config \

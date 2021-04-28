@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as builder
+FROM ubuntu:20.04 as builder
 
 # dependencies
 RUN set -ex; \
@@ -27,7 +27,7 @@ USER builder
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # go
-RUN curl -L https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz | tar -xz -C /home/builder
+RUN curl -L https://dl.google.com/go/go1.15.11.linux-amd64.tar.gz | tar -xz -C /home/builder
 
 ENV PATH=$PATH:/home/builder/.cargo/bin:/home/builder/go/bin
 
@@ -44,13 +44,13 @@ RUN set -ex; \
   make all -j$(nproc)
 
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN set -ex; \
   apt-get update; \
   apt-get install -y --no-install-recommends \
     ca-certificates \
-    libhwloc5 \
+    libhwloc15 \
     mesa-opencl-icd \
   ; \
   rm -rf /var/lib/apt/lists/*

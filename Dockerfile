@@ -27,7 +27,7 @@ USER builder
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # go
-RUN curl -L https://dl.google.com/go/go1.15.11.linux-amd64.tar.gz | tar -xz -C /home/builder
+RUN curl -L https://dl.google.com/go/go1.16.7.linux-amd64.tar.gz | tar -xz -C /home/builder
 
 ENV PATH=$PATH:/home/builder/.cargo/bin:/home/builder/go/bin
 
